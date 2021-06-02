@@ -1,0 +1,56 @@
+*A Fine Windy Day*
+------------------
+First of all , starting by some introduction :
+The machine learning challenge given to predict the power generated from the windmills was intriguing because of the 
+theme of the problem which focusses on renewable source of energy and making the world a better place . The current situation demands 
+instant steps to be taken in planning to make the planet breathe and sustain. The next 10 years is going to be a crucial timespan
+in deciding what happens next. Its time we start to act on serious issues like this one. Interesting times to live in !
+
+The strategies used for solving the problem and predicting the power produced in kW/h from the windmills are explained briefly below. 
+
+1. EXPLORATORY DATA ANALYSIS :
+
+The steps performed in exploratory data analysis are -
+- Finding number of features present in the given dataset
+- Finding number of NaN values present in each feature
+- Effect of null values on the dependent feature (windmill_generated_power(kW/h))
+- Datatypes of each feature 
+- Finding all the numerical features
+- Finding all discrete numerical features (if any)
+- Finding all continous numerical features
+- Visualizing the distribution of each feature
+- Visualizing the scatter plots of each feature wrt dependent feature (windmill_generated_power(kW/h))
+- Applying log distribution on all the features 
+- Finding the outliers in each feature using boxplots
+- Finding all the categorical features
+- Plotting graphs to understand the distribution of different labels of categorical features
+
+2. FEATURE ENGINEERING :
+
+The following procedure was applied -
+- Introducing new labels(inplace of NaN values) in categorical features which are not frequency based making sure that the dataset remains unbiased
+- Filling the NaN values by median of the respective numerical feature
+- Encode and bind (One-Hot encoding) on all the categorical features . Other types of encoding (like target guided ordinal encoding) are not used as they involve prioritization of labels which is not the case in this dataset.
+- Dropping the original feature as it has already been encoded
+- Pearson Correlation between all the features is found and its heatmap is plotted to know if any pair of features is highly correlated
+- Feature Selection is done using mutual_info_regressor and SelectKBest libraries to select the top 16 features based on their importance.
+- Normalization of the dataset is performed on the independent features so that deployment of models is efficient (for models that involve distances)
+
+(The same feature engineering is performed on both Test and Train datasets)
+
+3. MODEL DEPLOYMENT AND PREDICTIONS :
+
+Seven different models are trained ,each using different technique -
+	- Linear Regression
+	- Ridge regression
+	- Lasso Regression
+	- K Nearest Neighbours
+	- AdaBoost Regression
+	- Random Forest Regression
+	- SVM Regression
+
+The best result(in terms of r2_score) is produced by Random Forest Regression whereas the worst result corresponds to Linear Rgression.
+
+All the relevant files are given alongside this .txt file .
+
+Thank you!
